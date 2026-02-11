@@ -3,809 +3,1351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countryside Deli | Brodheadsville, PA</title>
+    <title>Brookside Deli | Macungie, PA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cream: #FFF8F0;
-            --warm-white: #FFFDF9;
-            --dark: #1A1712;
-            --brown: #3D2B1F;
-            --rust: #A0522D;
-            --gold: #C4913A;
-            --sage: #7A8B6F;
-            --light-sage: #E8EDE4;
-            --border: #E5DDD3;
-            --text-muted: #7A7067;
+            --white: #FFFFFF;
+            --off-white: #FAFAF7;
+            --sand: #F2EDE4;
+            --ink: #0D0D0D;
+            --charcoal: #2A2A2A;
+            --slate: #5C5C5C;
+            --red: #C23B22;
+            --red-light: #FFF0ED;
+            --green: #3B6B4A;
+            --green-light: #E9F2EC;
+            --border: #E0DCD5;
+            --shadow: rgba(13, 13, 13, 0.06);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--dark);
+            font-family: 'Manrope', sans-serif;
+            background: var(--off-white);
+            color: var(--ink);
             overflow-x: hidden;
         }
 
-        /* HERO */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--dark);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(ellipse at 30% 50%, rgba(164, 82, 45, 0.15), transparent 60%),
-                radial-gradient(ellipse at 70% 30%, rgba(196, 145, 58, 0.1), transparent 50%);
-            z-index: 1;
-        }
-
-        .hero-images {
-            position: absolute;
-            inset: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 4px;
-            opacity: 0.2;
-        }
-
-        .hero-images img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        /* ========== TOP BAR ========== */
+        .top-bar {
+            background: var(--ink);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
-            animation: fadeUp 1.2s ease-out;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-family: 'DM Sans', sans-serif;
+            padding: 0.6rem 1rem;
             font-size: 0.75rem;
-            letter-spacing: 0.3em;
+            font-weight: 500;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--gold);
-            border: 1px solid rgba(196, 145, 58, 0.4);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            margin-bottom: 2rem;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 8vw, 8rem);
-            font-weight: 900;
-            color: var(--warm-white);
-            line-height: 0.95;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .hero h1 span {
-            display: block;
-            font-style: italic;
-            font-weight: 400;
-            font-size: 0.45em;
-            color: var(--gold);
-            letter-spacing: 0.05em;
-            margin-top: 0.3em;
-        }
-
-        .hero-address {
-            font-family: 'Lora', serif;
-            color: rgba(255, 248, 240, 0.6);
-            font-size: 1rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--gold);
-            color: var(--dark);
+        .top-bar a {
+            color: var(--white);
             text-decoration: none;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            margin-left: 0.5rem;
         }
 
-        .hero-cta:hover {
-            background: var(--warm-white);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            color: rgba(255,248,240,0.4);
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.8; }
-        }
-
-        /* NAV */
-        nav {
+        /* ========== NAV ========== */
+        .main-nav {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 248, 240, 0.95);
+            background: rgba(250, 250, 247, 0.97);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
         }
 
-        .nav-inner {
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 3rem;
+            height: 70px;
         }
 
-        .nav-inner a {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--brown);
-            text-decoration: none;
-            transition: color 0.3s;
-            position: relative;
+        .nav-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.4rem;
+            color: var(--ink);
+            letter-spacing: -0.02em;
         }
 
-        .nav-inner a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
-
-        .nav-inner a:hover::after {
-            width: 100%;
-        }
-
-        .nav-inner a:hover {
-            color: var(--gold);
-        }
-
-        /* SECTION HEADERS */
-        .section-header {
-            text-align: center;
-            padding: 5rem 2rem 3rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            color: var(--brown);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            font-family: 'Lora', serif;
+        .nav-logo em {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            color: var(--text-muted);
+            font-weight: 400;
+            color: var(--red);
             font-size: 1.1rem;
         }
 
-        .section-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-            margin: 1.5rem auto 0;
-        }
-
-        /* MENU GRID */
-        .menu-section {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-
-        .menu-card {
-            background: var(--warm-white);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .menu-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .menu-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(26, 23, 18, 0.1);
-            border-color: var(--gold);
-        }
-
-        .menu-card-image {
-            position: relative;
-            width: 100%;
-            height: 320px;
-            overflow: hidden;
-        }
-
-        .menu-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .menu-card:hover .menu-card-image img {
-            transform: scale(1.05);
-        }
-
-        .menu-card-image .price-tag {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            background: var(--dark);
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-        }
-
-        .menu-card-body {
-            padding: 1.5rem 1.75rem 1.75rem;
-        }
-
-        .menu-card-body h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--brown);
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-card-body p {
-            font-family: 'Lora', serif;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* EXTRAS / ADD-ONS */
-        .extras-section {
-            background: var(--dark);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .extras-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--warm-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .extras-section .subtitle {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            color: var(--gold);
-            margin-bottom: 3rem;
-            font-size: 1.05rem;
-        }
-
-        .extras-grid {
+        .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
+            gap: 2.5rem;
+            list-style: none;
         }
 
-        .extra-item {
-            background: rgba(255, 248, 240, 0.06);
-            border: 1px solid rgba(255, 248, 240, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem 2.5rem;
-            transition: all 0.3s;
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .extra-item:hover {
-            border-color: var(--gold);
-            background: rgba(196, 145, 58, 0.08);
-        }
+        .nav-links a:hover { color: var(--red); }
 
-        .extra-item .extra-name {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            color: var(--warm-white);
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .extra-item .extra-price {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 1.3rem;
+        .nav-phone {
+            font-family: 'Manrope', sans-serif;
             font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--ink);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* BAGELS SECTION */
-        .bagels-section {
-            background: var(--light-sage);
-            padding: 0;
-        }
+        .nav-phone svg { width: 16px; height: 16px; }
 
-        .bagels-inner {
-            max-width: 1300px;
+        /* ========== HERO ========== */
+        .hero {
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 3rem 2rem 4rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-        }
-
-        .bagels-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bagels-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .bagels-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem 4rem;
-        }
-
-        .bagels-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 3.5vw, 3.2rem);
-            font-weight: 900;
-            color: var(--brown);
-            margin-bottom: 0.5rem;
-        }
-
-        .bagels-content .subtitle {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            color: var(--sage);
-            font-size: 1.05rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .bagel-price-row {
-            display: flex;
-            justify-content: space-between;
+            gap: 3rem;
             align-items: center;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(61, 43, 31, 0.1);
+            min-height: 85vh;
         }
 
-        .bagel-price-row:last-child {
-            border-bottom: none;
+        .hero-text {
+            animation: slideIn 0.8s ease-out;
         }
 
-        .bagel-price-row .item-name {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            color: var(--brown);
-            font-size: 1.05rem;
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
-        .bagel-price-row .item-price {
-            font-family: 'Playfair Display', serif;
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--green-light);
+            color: var(--green);
+            font-size: 0.72rem;
             font-weight: 700;
-            color: var(--rust);
-            font-size: 1.25rem;
-        }
-
-        /* CONTACT / FOOTER */
-        .contact-section {
-            background: var(--brown);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--warm-white);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
             margin-bottom: 2rem;
         }
 
-        .contact-details {
-            max-width: 500px;
-            margin: 0 auto;
+        .hero-tag .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
         }
 
-        .contact-line {
-            font-family: 'Lora', serif;
-            color: rgba(255, 248, 240, 0.7);
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 5.5vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .script {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 0.5em;
+            color: var(--red);
+            letter-spacing: 0;
+            margin-top: 0.2em;
+        }
+
+        .hero-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: var(--slate);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--ink);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--ink);
+        }
+
+        .hero-mosaic {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 280px 280px;
+            gap: 12px;
+            animation: fadeUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .mosaic-img {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mosaic-img:first-child {
+            grid-row: 1 / 3;
+            border-radius: 12px;
+        }
+
+        .mosaic-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .mosaic-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ========== HIGHLIGHTS STRIP ========== */
+        .highlights {
+            background: var(--ink);
+            padding: 4rem 2rem;
+            overflow: hidden;
+        }
+
+        .highlights-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
             font-size: 1.1rem;
-            line-height: 2;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        .contact-phone {
-            display: inline-block;
-            margin-top: 1.5rem;
-            font-family: 'Playfair Display', serif;
+        .highlights-scroll {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .highlights-scroll::-webkit-scrollbar { display: none; }
+
+        .highlight-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .highlight-card:hover { transform: scale(1.03); }
+
+        .highlight-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .highlight-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+        }
+
+        .highlight-card .overlay h3 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--white);
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight-card .overlay .hl-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ========== MENU SECTION ========== */
+        .menu-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .menu-header h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        .menu-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--slate);
+        }
+
+        /* Tab Navigation */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 0.65rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--border);
+            background: transparent;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .menu-tab:hover { border-color: var(--charcoal); }
+
+        .menu-tab.active {
+            background: var(--ink);
+            color: var(--white);
+            border-color: var(--ink);
+        }
+
+        /* Menu Category */
+        .menu-category {
+            display: none;
+        }
+
+        .menu-category.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .menu-cat-title {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--ink);
+            margin-bottom: 0.3rem;
+            margin-top: 2.5rem;
+        }
+
+        .menu-cat-title:first-child { margin-top: 0; }
+
+        .menu-cat-line {
+            width: 40px;
+            height: 3px;
+            background: var(--red);
+            margin-bottom: 1.5rem;
+            border-radius: 2px;
+        }
+
+        .menu-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 0;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+            gap: 1rem;
+        }
+
+        .menu-item:hover {
+            background: rgba(194, 59, 34, 0.03);
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .menu-item-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+
+        .menu-item-price {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--red);
+            white-space: nowrap;
+            padding-top: 0.1rem;
+        }
+
+        /* ========== SPECIALS BANNER ========== */
+        .specials-banner {
+            background: var(--sand);
+            padding: 4rem 2rem;
+        }
+
+        .specials-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .specials-image {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .specials-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .specials-content h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .specials-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--slate);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .specials-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .spec-feat {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        .spec-feat .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: var(--ink);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(255,255,255,0.5);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            font-family: 'Manrope', sans-serif;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 2;
             text-decoration: none;
-            transition: opacity 0.3s;
+            display: block;
         }
 
-        .contact-phone:hover {
-            opacity: 0.8;
-        }
+        .footer-col a:hover { color: var(--white); }
 
-        .footer {
-            background: var(--dark);
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
             text-align: center;
-            padding: 2rem;
         }
 
-        .footer p {
-            font-family: 'DM Sans', sans-serif;
-            color: rgba(255,248,240,0.3);
+        .footer-bottom p {
+            color: rgba(255,255,255,0.2);
             font-size: 0.8rem;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-            .bagels-inner {
-                grid-template-columns: 1fr;
-            }
-            .bagels-image {
-                height: 350px;
-            }
-            .bagels-content {
-                padding: 3rem 2rem;
-            }
-            .nav-inner {
-                gap: 1.5rem;
-            }
-            .nav-inner a {
-                font-size: 0.7rem;
-            }
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1000px) {
+            .hero { grid-template-columns: 1fr; min-height: auto; padding: 2rem; }
+            .hero-mosaic { grid-template-rows: 200px 200px; }
+            .specials-inner { grid-template-columns: 1fr; }
+            .specials-image { height: 350px; }
+            .footer-inner { grid-template-columns: 1fr; }
+            .menu-items-grid { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 500px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-            .menu-card-image {
-                height: 260px;
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .nav-inner {
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
+        @media (max-width: 600px) {
+            .hero-mosaic { grid-template-columns: 1fr; grid-template-rows: 250px 180px 180px; }
+            .mosaic-img:first-child { grid-row: auto; }
+            .nav-container { padding: 0 1rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.7rem; }
+            .nav-phone { display: none; }
+            .highlight-card { flex: 0 0 260px; }
+            .highlight-card img { height: 300px; }
+            .menu-items-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== MOBILE NAV ========== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-images">
-            <img src="images/IMG_3762.jpeg" alt="">
-            <img src="images/IMG_3760.jpeg" alt="">
-            <img src="images/IMG_3765.jpeg" alt="">
-        </div>
-        <div class="hero-content">
-            <div class="hero-badge">Est. in Brodheadsville, PA</div>
-            <h1>Countryside<span>Deli</span></h1>
-            <div class="hero-address">
-                2232 PA-115, Brodheadsville, PA 18322
-            </div>
-            <a href="tel:5709921972" class="hero-cta">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                Call (570) 992-1972
-            </a>
-        </div>
-        <div class="hero-scroll">Scroll to explore</div>
-    </section>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        Open Now · Pickup in 7 &ndash; 12 min · <a href="tel:6103511392">(610) 351-1392</a>
+    </div>
 
     <!-- NAV -->
-    <nav>
-        <div class="nav-inner">
-            <a href="#breakfast">Breakfast</a>
-            <a href="#sandwiches">Sandwiches</a>
-            <a href="#bagels">Bagels</a>
-            <a href="#sides">Sides</a>
-            <a href="#contact">Visit Us</a>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">BROOKSIDE <em>deli</em></div>
+            <ul class="nav-links">
+                <li><a href="#highlights">Highlights</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:6103511392" class="nav-phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.876.37 1.74.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.07.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (610) 351-1392
+            </a>
         </div>
     </nav>
 
-    <!-- BREAKFAST -->
-    <div id="breakfast">
-        <div class="section-header">
-            <h2>Breakfast</h2>
-            <p>Start your morning right</p>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3809.jpeg" alt="Breakfast Sandwich on Bagel">
-                        <div class="price-tag">$5.00</div>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Breakfast Sandwich</h3>
-                        <p>Two fried eggs with your choice of bacon, sausage, pork roll, or ham, topped with yellow American cheese. Served on a bagel, kaiser, English muffin, toast, or wrap. Scrambled or egg whites available on request.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3762.jpeg" alt="Pork Roll Egg and Cheese on Everything Bagel">
-                        <div class="price-tag">$5.00</div>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Pork Roll, Egg &amp; Cheese</h3>
-                        <p>A true Jersey classic. Crispy pork roll with a runny fried egg and melted American cheese on a toasted everything bagel. There's nothing quite like it.</p>
-                    </div>
-                </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="hero-tag">
+                <span class="dot"></span>
+                Order Now · Pickup &amp; Delivery
+            </div>
+            <h1>
+                BROOKSIDE
+                <span class="script">Your neighborhood deli</span>
+            </h1>
+            <p class="hero-desc">
+                Fresh sandwiches, hearty breakfasts, and homemade sides crafted with care at 1915 Brookside Road in Macungie, Pennsylvania.
+            </p>
+            <div class="hero-buttons">
+                <a href="tel:6103511392" class="btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.876.37 1.74.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.07.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call to Order
+                </a>
+                <a href="#menu" class="btn-secondary">View Full Menu</a>
             </div>
         </div>
-    </div>
-
-    <!-- EXTRAS -->
-    <section class="extras-section">
-        <h2>Make It Your Own</h2>
-        <p class="subtitle">Customize any breakfast sandwich</p>
-        <div class="extras-grid">
-            <div class="extra-item">
-                <div class="extra-name">Extra Egg</div>
-                <div class="extra-price">$1.00</div>
+        <div class="hero-mosaic">
+            <div class="mosaic-img">
+                <img src="images/F57AF51E-D73E-4A09-808B-032FD7B82A2E.png" alt="Hot Pastrami Rachel">
             </div>
-            <div class="extra-item">
-                <div class="extra-name">Extra Cheese</div>
-                <div class="extra-price">$0.50</div>
+            <div class="mosaic-img">
+                <img src="images/IMG_3762.jpeg" alt="Pork Roll Egg and Cheese">
             </div>
-            <div class="extra-item">
-                <div class="extra-name">Hash Brown</div>
-                <div class="extra-price">$1.75</div>
+            <div class="mosaic-img">
+                <img src="images/IMG_3765.jpeg" alt="Italian Sub">
             </div>
         </div>
     </section>
 
-    <!-- BAGELS -->
-    <div id="bagels">
-        <section class="bagels-section">
-            <div class="bagels-inner">
-                <div class="bagels-image">
-                    <img src="images/IMG_3811.jpeg" alt="Fresh Bagel with Cream Cheese">
-                </div>
-                <div class="bagels-content">
-                    <h2>Fresh Bagels</h2>
-                    <p class="subtitle">Baked fresh and served warm</p>
-                    <div class="bagel-price-row">
-                        <span class="item-name">Loose Bagel</span>
-                        <span class="item-price">$1.75</span>
-                    </div>
-                    <div class="bagel-price-row">
-                        <span class="item-name">Bagel with Cream Cheese</span>
-                        <span class="item-price">$3.50</span>
-                    </div>
-                    <div class="bagel-price-row">
-                        <span class="item-name">Bagel with Butter</span>
-                        <span class="item-price">$2.50</span>
-                    </div>
+    <!-- HIGHLIGHTS -->
+    <section class="highlights" id="highlights">
+        <div class="highlights-title">Fan Favorites</div>
+        <div class="highlights-scroll">
+            <div class="highlight-card">
+                <img src="images/IMG_3809.jpeg" alt="Breakfast Sandwich">
+                <div class="overlay">
+                    <h3>Bacon Egg &amp; Cheese</h3>
+                    <span class="hl-price">$7.00</span>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <!-- SANDWICHES -->
-    <div id="sandwiches">
-        <div class="section-header">
-            <h2>Sandwiches</h2>
-            <p>Made fresh, piled high</p>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3765.jpeg" alt="Italian Sub">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Italian Sub</h3>
-                        <p>Salami, ham, and provolone cheese piled on a fresh sub roll with crisp lettuce, ripe tomatoes, and red onion rings. Finished with oil and vinegar.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3760.jpeg" alt="Hot Reuben Sandwich">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Reuben</h3>
-                        <p>Tender, thinly sliced corned beef piled high with tangy sauerkraut and melted Swiss cheese on golden, buttery grilled rye bread.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3758.jpeg" alt="Chopped Cheese Sub">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Chopped Cheese</h3>
-                        <p>Seasoned ground beef chopped on the grill with melted American cheese, fresh lettuce, and ripe tomatoes on a toasted hero roll.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3808.jpeg" alt="Chicken Salad Sandwich">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Chicken Salad Sandwich</h3>
-                        <p>Homemade chicken salad tossed with dried cranberries and walnuts, layered with fresh greens on your choice of bread.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3807.jpeg" alt="Egg Salad Sandwich">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Egg Salad Sandwich</h3>
-                        <p>Classic creamy egg salad with crisp lettuce and fresh tomato slices, served on hearty multigrain bread.</p>
-                    </div>
+            <div class="highlight-card">
+                <img src="images/IMG_3760.jpeg" alt="Reuben">
+                <div class="overlay">
+                    <h3>Reuben</h3>
+                    <span class="hl-price">$9.75</span>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- SIDES -->
-    <div id="sides">
-        <div class="section-header">
-            <h2>Sides</h2>
-            <p>The perfect addition</p>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-grid" style="max-width: 450px; margin: 0 auto;">
-                <div class="menu-card">
-                    <div class="menu-card-image">
-                        <img src="images/IMG_3810.jpeg" alt="Homemade Potato Salad">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>Homemade Potato Salad</h3>
-                        <p>Chunky red potatoes in a creamy, seasoned dressing with fresh parsley. Made in house, just like grandma used to make.</p>
-                    </div>
+            <div class="highlight-card">
+                <img src="images/IMG_3758.jpeg" alt="Chop Cheese">
+                <div class="overlay">
+                    <h3>Chop Cheese</h3>
+                    <span class="hl-price">$9.99</span>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-        <h2>Come Visit Us</h2>
-        <div class="contact-details">
-            <div class="contact-line">2232 PA-115</div>
-            <div class="contact-line">Brodheadsville, PA 18322</div>
-            <a href="tel:5709921972" class="contact-phone">(570) 992-1972</a>
+            <div class="highlight-card">
+                <img src="images/IMG_3808.jpeg" alt="Chicken Salad">
+                <div class="overlay">
+                    <h3>Chicken Salad w/ Cranberries</h3>
+                    <span class="hl-price">$8.25</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img src="images/IMG_3823.jpeg" alt="BLT">
+                <div class="overlay">
+                    <h3>Classic BLT</h3>
+                    <span class="hl-price">$7.00</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img src="images/IMG_3824.jpeg" alt="Club Sandwich">
+                <div class="overlay">
+                    <h3>Club Sandwich</h3>
+                    <span class="hl-price">$11.50</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img src="images/IMG_3811.jpeg" alt="Bagel with Cream Cheese">
+                <div class="overlay">
+                    <h3>Bagel with Cream Cheese</h3>
+                    <span class="hl-price">$2.50</span>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img src="images/IMG_3821.jpeg" alt="Rachel Sandwich">
+                <div class="overlay">
+                    <h3>Rachel</h3>
+                    <span class="hl-price">$9.75</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Countryside Deli. All rights reserved.</p>
+    <!-- FULL MENU -->
+    <section class="menu-wrapper" id="menu">
+        <div class="menu-header">
+            <h2>Our Menu</h2>
+            <p>Something for every appetite</p>
+        </div>
+
+        <div class="menu-tabs">
+            <button class="menu-tab active" data-tab="breakfast">Breakfast</button>
+            <button class="menu-tab" data-tab="cold">Cold Sandwiches</button>
+            <button class="menu-tab" data-tab="hot">Hot Sandwiches</button>
+            <button class="menu-tab" data-tab="burgers">Burgers &amp; Cutlets</button>
+            <button class="menu-tab" data-tab="salads">Soups &amp; Salads</button>
+            <button class="menu-tab" data-tab="sides">Sides</button>
+        </div>
+
+        <!-- BREAKFAST -->
+        <div class="menu-category active" id="tab-breakfast">
+            <h3 class="menu-cat-title">Breakfast Sandwiches</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bacon Egg and Cheese</div>
+                        <div class="menu-item-desc">Fried egg, yellow American cheese</div>
+                    </div>
+                    <div class="menu-item-price">$7.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Sausage Egg and Cheese</div>
+                        <div class="menu-item-desc">Fried egg, sausage, yellow American cheese</div>
+                    </div>
+                    <div class="menu-item-price">$7.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Pork Roll Egg and Cheese</div>
+                        <div class="menu-item-desc">Fried egg, pork roll, yellow American cheese</div>
+                    </div>
+                    <div class="menu-item-price">$7.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Ham Egg and Cheese</div>
+                        <div class="menu-item-desc">Fried egg, ham, yellow American cheese</div>
+                    </div>
+                    <div class="menu-item-price">$7.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">BYO Breakfast Sandwich</div>
+                        <div class="menu-item-desc">Build your own from scratch</div>
+                    </div>
+                    <div class="menu-item-price">$2.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bagel / Kaiser / English Muffin / Toast</div>
+                        <div class="menu-item-desc">Your choice of bread</div>
+                    </div>
+                    <div class="menu-item-price">$2.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Breakfast Platter</div>
+                        <div class="menu-item-desc">Build your own platter</div>
+                    </div>
+                    <div class="menu-item-price">$1.00+</div>
+                </div>
+            </div>
+
+            <h3 class="menu-cat-title">Breakfast Sides</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Bacon</div></div>
+                    <div class="menu-item-price">$1.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Side of Sausage</div></div>
+                    <div class="menu-item-price">$1.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Hash Brown on the Side</div></div>
+                    <div class="menu-item-price">$1.75</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLD SANDWICHES -->
+        <div class="menu-category" id="tab-cold">
+            <h3 class="menu-cat-title">Cold Sandwiches</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Belly Buster</div>
+                        <div class="menu-item-desc">Stuffed with extra ovengold turkey, roast beef and American cheese with deli mustard, lettuce, tomato and onions on a hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$9.99</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">BLT</div>
+                        <div class="menu-item-desc">Bacon, lettuce, tomato and mayo on your choice of toast</div>
+                    </div>
+                    <div class="menu-item-price">$7.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Buffalo Chicken Blast</div>
+                        <div class="menu-item-desc">Roasted chicken, pepper jack cheese, lettuce, tomato, onion, bleu cheese dressing and hot sauce on a kaiser roll</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Caesar Wrap</div>
+                        <div class="menu-item-desc">Sliced grilled chicken breast, shredded Parmesan, lettuce, tomato and Caesar dressing on a white or wheat wrap</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Salad Sandwich (Original)</div>
+                        <div class="menu-item-desc">Chicken, celery, mayonnaise, sour cream, salt and pepper</div>
+                    </div>
+                    <div class="menu-item-price">$8.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Salad w/ Walnuts &amp; Cranberries</div>
+                        <div class="menu-item-desc">Chicken, celery, mayonnaise, sour cream, salt/pepper, walnuts and cranberries</div>
+                    </div>
+                    <div class="menu-item-price">$8.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Club Sandwich</div>
+                        <div class="menu-item-desc">Choice of ovengold turkey or ham, with bacon, mayo, lettuce and tomato on 3 toasted slices of your choice of bread</div>
+                    </div>
+                    <div class="menu-item-price">$11.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Grilled Margarita</div>
+                        <div class="menu-item-desc">Fresh mozzarella, tomato, mayo, basil on a grilled hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$7.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Honey Maple Heaven</div>
+                        <div class="menu-item-desc">Ham or turkey, muenster cheese, bacon, lettuce, tomato and honey mustard on a kaiser</div>
+                    </div>
+                    <div class="menu-item-price">$11.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Italian</div>
+                        <div class="menu-item-desc">Deluxe ham, cappy ham, hard salami, provolone with oil and vinegar, lettuce, tomato, onion on a hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$5.50+</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Pepperpot</div>
+                        <div class="menu-item-desc">Cracked peppermill turkey, pepper jack cheese, hot and/or sweet peppers, lettuce, tomato, onions, peppercorn mayo on a kaiser</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Rachel</div>
+                        <div class="menu-item-desc">Pastrami or turkey with Swiss cheese, Russian dressing and coleslaw on rye bread</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Rajin Cajun</div>
+                        <div class="menu-item-desc">Roasted chicken, pepper jack cheese, lettuce, tomato, onion, jalape&ntilde;o peppers, cajun mayonnaise on a hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Real Beef</div>
+                        <div class="menu-item-desc">Roast beef, cheddar cheese, lettuce, tomato, onions, horseradish mayo on a kaiser roll</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Red Roaster</div>
+                        <div class="menu-item-desc">Roasted chicken, provolone, bacon, lettuce, tomato, onion, roasted red peppers and mayo on a hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$11.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Turkey Roma</div>
+                        <div class="menu-item-desc">Turkey, mozzarella, roasted red peppers, pesto mayo on a white or wheat wrap</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Veggie</div>
+                        <div class="menu-item-desc">Lettuce, tomato, cucumber, roasted red peppers, black olives, red onions on your choice of bread</div>
+                    </div>
+                    <div class="menu-item-price">$6.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Create Your Own Lunch Sandwich</div>
+                        <div class="menu-item-desc">Build it just the way you like it</div>
+                    </div>
+                    <div class="menu-item-price">$8.25</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOT SANDWICHES -->
+        <div class="menu-category" id="tab-hot">
+            <h3 class="menu-cat-title">Hot Sandwiches</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Balboa</div>
+                        <div class="menu-item-desc">Roast beef with melted provolone and cheddar cheese on a grilled garlic and butter hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$10.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bernadette</div>
+                        <div class="menu-item-desc">Peppered turkey, pepper jack cheese, Russian dressing on a hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Cheesesteak Special</div>
+                        <div class="menu-item-desc">16 oz steak meat, cooper sharp cheese, saut&eacute;ed onions on a steak roll</div>
+                    </div>
+                    <div class="menu-item-price">$13.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Bacon Ranch</div>
+                        <div class="menu-item-desc">Roasted chicken, American cheese, bacon, shredded lettuce, tomato and ranch dressing on a kaiser roll</div>
+                    </div>
+                    <div class="menu-item-price">$11.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Steak</div>
+                        <div class="menu-item-desc">Full size</div>
+                    </div>
+                    <div class="menu-item-price">$9.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Steak (Half)</div>
+                        <div class="menu-item-desc">Half size portion</div>
+                    </div>
+                    <div class="menu-item-price">$4.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chop Cheese</div>
+                        <div class="menu-item-desc">Ground beef, American cheese, lettuce, tomato, onion, mayo on a hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$9.99</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Cuban</div>
+                        <div class="menu-item-desc">Roasted pork, deluxe ham, Swiss cheese, pickles, yellow mustard on a grilled hoagie roll</div>
+                    </div>
+                    <div class="menu-item-price">$10.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Grilled Cheese</div>
+                        <div class="menu-item-desc">Classic comfort</div>
+                    </div>
+                    <div class="menu-item-price">$5.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Hot Rachel</div>
+                        <div class="menu-item-desc">Thinly sliced pastrami or turkey, melted Swiss cheese, Russian dressing and coleslaw on rye</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Reuben</div>
+                        <div class="menu-item-desc">Classic corned beef, Swiss cheese, Russian dressing and sauerkraut on rye</div>
+                    </div>
+                    <div class="menu-item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Steak Sandwich</div>
+                        <div class="menu-item-desc">Full size</div>
+                    </div>
+                    <div class="menu-item-price">$9.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Steak Sandwich (Half)</div>
+                        <div class="menu-item-desc">Half size portion</div>
+                    </div>
+                    <div class="menu-item-price">$4.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BURGERS & CUTLETS -->
+        <div class="menu-category" id="tab-burgers">
+            <h3 class="menu-cat-title">Burgers</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Burger (Create Your Own)</div>
+                        <div class="menu-item-desc">Build your perfect burger</div>
+                    </div>
+                    <div class="menu-item-price">$7.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">BBQ Bacon Burger</div>
+                        <div class="menu-item-desc">Cheddar, bacon, BBQ sauce, lettuce, tomato</div>
+                    </div>
+                    <div class="menu-item-price">$10.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">South by Southwest</div>
+                        <div class="menu-item-desc">Fried jalape&ntilde;os, pepper jack cheese, chipotle mayo, crispy onion fries</div>
+                    </div>
+                    <div class="menu-item-price">$9.50</div>
+                </div>
+            </div>
+
+            <h3 class="menu-cat-title">Cutlets</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Parm</div>
+                        <div class="menu-item-desc">Chicken cutlet, marinara, mozzarella cheese</div>
+                    </div>
+                    <div class="menu-item-price">$9.99</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">California Cutlet</div>
+                        <div class="menu-item-desc">Lettuce, tomato, mayo, American cheese</div>
+                    </div>
+                    <div class="menu-item-price">$9.99</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Buffalo Chicken Cutlet Wrap</div>
+                        <div class="menu-item-desc">Cheddar cheese, blue cheese, shredded lettuce</div>
+                    </div>
+                    <div class="menu-item-price">$9.99</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOUPS & SALADS -->
+        <div class="menu-category" id="tab-salads">
+            <h3 class="menu-cat-title">Soups &amp; Salads</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chicken Caesar Salad</div>
+                        <div class="menu-item-desc">Classic with lettuce, croutons, Caesar dressing, and Parmesan cheese</div>
+                    </div>
+                    <div class="menu-item-price">$10.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Chef Salad</div>
+                        <div class="menu-item-desc">Lettuce, tomato, cucumber, provolone, ham, turkey, egg salad</div>
+                    </div>
+                    <div class="menu-item-price">$10.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Greek Salad</div>
+                        <div class="menu-item-desc">Lettuce, tomato, black olives, cucumber, feta cheese, roasted red peppers</div>
+                    </div>
+                    <div class="menu-item-price">$10.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDES -->
+        <div class="menu-category" id="tab-sides">
+            <h3 class="menu-cat-title">Hot Sides</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">French Fries</div></div>
+                    <div class="menu-item-price">$3.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Pierogies (3)</div>
+                    </div>
+                    <div class="menu-item-price">$4.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Waffle Fries</div></div>
+                    <div class="menu-item-price">$3.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Hash Brown</div></div>
+                    <div class="menu-item-price">$1.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Mozzarella Sticks (3)</div>
+                    </div>
+                    <div class="menu-item-price">$4.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Onion Rings</div></div>
+                    <div class="menu-item-price">$4.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Chicken Bites</div></div>
+                    <div class="menu-item-price">$5.00</div>
+                </div>
+            </div>
+
+            <h3 class="menu-cat-title">Deli Salads (8 oz)</h3>
+            <div class="menu-cat-line"></div>
+            <div class="menu-items-grid">
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Tuna Salad</div></div>
+                    <div class="menu-item-price">$5.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Macaroni Salad</div></div>
+                    <div class="menu-item-price">$4.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">CWC Chicken Salad</div>
+                        <div class="menu-item-desc">With cranberries and walnuts</div>
+                    </div>
+                    <div class="menu-item-price">$6.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Potato Salad</div></div>
+                    <div class="menu-item-price">$4.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Coleslaw</div></div>
+                    <div class="menu-item-price">$4.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info"><div class="menu-item-name">Chicken Salad</div></div>
+                    <div class="menu-item-price">$6.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALS BANNER -->
+    <section class="specials-banner" id="about">
+        <div class="specials-inner">
+            <div class="specials-image">
+                <img src="images/IMG_3810.jpeg" alt="Fresh homemade sides">
+            </div>
+            <div class="specials-content">
+                <h2>Made Fresh.<br>Every Single Day.</h2>
+                <p>At Brookside Deli, everything is made to order with quality ingredients. From our homemade deli salads to our hand-crafted sandwiches, we take pride in every bite that leaves our kitchen.</p>
+                <div class="specials-features">
+                    <div class="spec-feat">
+                        <div class="icon-circle">&#x1F4CD;</div>
+                        <span>1915 Brookside Rd, Macungie, PA 18062</span>
+                    </div>
+                    <div class="spec-feat">
+                        <div class="icon-circle">&#x1F552;</div>
+                        <span>Open daily until 3:00 PM</span>
+                    </div>
+                    <div class="spec-feat">
+                        <div class="icon-circle">&#x1F698;</div>
+                        <span>Pickup &amp; Delivery available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>Brookside Deli</h3>
+                <p>Your neighborhood deli in Macungie, PA. Fresh sandwiches, hearty breakfasts, and homemade sides crafted with care every single day.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>1915 Brookside Rd</p>
+                <p>Macungie, PA 18062</p>
+                <p>Open daily until 3 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Order Now</h4>
+                <a href="tel:6103511392">(610) 351-1392</a>
+                <p>Pickup &amp; Delivery</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Brookside Deli. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        // Scroll animation for menu cards
+        // Tab switching
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Scroll animations for menu items
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05 });
 
-        document.querySelectorAll('.menu-card').forEach(card => observer.observe(card));
+        document.querySelectorAll('.menu-item').forEach((item, i) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(10px)';
+            item.style.transition = `all 0.3s ease ${i * 0.03}s`;
+            observer.observe(item);
+        });
 
-        // Smooth nav active state
-        const sections = document.querySelectorAll('[id]');
-        const navLinks = document.querySelectorAll('.nav-inner a');
-
+        // Active nav highlighting
+        const navLinks = document.querySelectorAll('.nav-links a');
         window.addEventListener('scroll', () => {
+            const sections = ['highlights', 'menu', 'about', 'contact'];
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && scrollY >= el.offsetTop - 200) current = id;
             });
             navLinks.forEach(link => {
-                link.style.color = '';
-                if (link.getAttribute('href') === '#' + current) {
-                    link.style.color = 'var(--gold)';
-                }
+                link.style.color = link.getAttribute('href') === '#' + current ? 'var(--red)' : '';
             });
         });
     </script>
